@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/widgetsMenu"
+        android:title="Widgets">
+        <menu>
+            <item
+                android:id="@+id/textViewWidget"
+                android:title="TextView" />
+            <item
+                android:id="@+id/editTextWidget"
+                android:title="EditText" />
+            <item
+                android:id="@+id/buttonWidget"
+                android:title="Button" />
+            <item
+                android:id="@+id/radioButtonWidget"
+                android:title="RadioButton" />
+            <item
+                android:id="@+id/checkboxWidget"
+                android:title="Checkbox" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/layoutsMenu"
+        android:title="Layouts">
+        <menu>
+            <item
+                android:id="@+id/linearLayout"
+                android:title="Linear" />
+            <item
+                android:id="@+id/constraintLayout"
+                android:title="Constraint" />
+            <item
+                android:id="@+id/relativeLayout"
+                android:title="Relative" />
+        </menu>
+    </item>
+</menu>
