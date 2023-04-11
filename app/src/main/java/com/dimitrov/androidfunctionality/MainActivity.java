@@ -1,23 +1,23 @@
 package com.dimitrov.androidfunctionality;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.dimitrov.androidfunctionality.LayoutsExample.LayoutsActivity;
-import com.dimitrov.androidfunctionality.LayoutsExample.WidgetsActivity;
+import com.dimitrov.androidfunctionality.Adapters.MainActivityPagerAdapter;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
-    Button layoutsButton, widgetsButton;
+    TabLayout tabLayout;
+    TabItem tabLayouts, tabWidgets;
+    ViewPager viewPager;
+    MainActivityPagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +25,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         initViews();
+        pagerAdapter = new MainActivityPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(pagerAdapter);
+        // It is used to join TabLayout with ViewPager.
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     private void initViews() {
-        layoutsButton = findViewById(R.id.btnLayout);
-        widgetsButton = findViewById(R.id.btnWidgets);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+        tabWidgets = findViewById(R.id.tabWidgets);
+        tabLayouts = findViewById(R.id.tabLayouts);
 
-        layoutsButton.setOnClickListener(this);
-        widgetsButton.setOnClickListener(this);
+       // tabWidgets.setOnClickListener(this);
+       // tabLayouts.setOnClickListener(this);
     }
 
     @Override
@@ -73,15 +79,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onClick(View view) {
-        switch  (view.getId()){
-            case R.id.btnWidgets:
-                startActivity(new Intent(MainActivity.this, WidgetsActivity.class));
-                break;
-            case R.id.btnLayout:
-                startActivity(new Intent(MainActivity.this, LayoutsActivity.class));
-                break;
-        }
-    }
+   // @Override
+   // public void onClick(View view) {
+   //     switch  (view.getId()){
+   //         case R.id.tabWidgets:
+   //             startActivity(new Intent(MainActivity.this, WidgetsActivity.class));
+   //             break;
+   //         case R.id.tabLayouts:
+   //             startActivity(new Intent(MainActivity.this, LayoutsActivity.class));
+   //             break;
+   //     }
+   // }
 }
