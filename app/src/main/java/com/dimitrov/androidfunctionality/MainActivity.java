@@ -12,7 +12,7 @@ import com.dimitrov.androidfunctionality.Adapters.MainActivityPagerAdapter;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     TabLayout tabLayout;
     TabItem tabLayouts, tabWidgets;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
+
         pagerAdapter = new MainActivityPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         // It is used to join TabLayout with ViewPager.
@@ -36,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         tabWidgets = findViewById(R.id.tabWidgets);
         tabLayouts = findViewById(R.id.tabLayouts);
-
-       // tabWidgets.setOnClickListener(this);
-       // tabLayouts.setOnClickListener(this);
     }
 
     @Override
@@ -78,16 +76,4 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-   // @Override
-   // public void onClick(View view) {
-   //     switch  (view.getId()){
-   //         case R.id.tabWidgets:
-   //             startActivity(new Intent(MainActivity.this, WidgetsActivity.class));
-   //             break;
-   //         case R.id.tabLayouts:
-   //             startActivity(new Intent(MainActivity.this, LayoutsActivity.class));
-   //             break;
-   //     }
-   // }
 }
